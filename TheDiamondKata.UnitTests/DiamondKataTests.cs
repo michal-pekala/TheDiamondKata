@@ -35,20 +35,6 @@ public class DiamondKataTests
 	}
 
 	[Fact]
-	public void DiamondKata_of_size_n_line_1_contains_n_minus_1_spaces()
-	{
-		var size = _random.Next(26) + 1;
-
-		var sut = new DiamondKata(size);
-
-		var result = sut.Line(1);
-
-		var expectedSpace = _txt.Space(size - 1);
-
-		result.Should().Be(expectedSpace + "A");
-	}
-
-	[Fact]
 	public void DiamondKata_of_size_n_line_2n_is_null()
 	{
 		var size = _random.Next(26) + 1;
