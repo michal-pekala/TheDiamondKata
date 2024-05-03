@@ -79,4 +79,25 @@ public class DiamondKataTests
 		result.Should().NotBeNull();
 		result.Prefix(size - lineNr).Should().Be(expectedSpace);
 	}
+
+	[Fact]
+	public void DiamondKata_line_m_contains_mth_letter()
+	{
+		// ARRANGE
+		var size = _random.Next(26) + 1;
+
+		var lineNr = _random.Next(size) - 1;
+
+		var sut = new DiamondKata(size);
+
+		// ACT
+		var result = sut.Line(lineNr);
+
+		//ASSERT
+
+		result.Should().NotBeNull();
+		var letter = result.Substring(size - lineNr).First();
+
+		letter.Should().Be((char)('A' + lineNr - 1));
+	}
 }
