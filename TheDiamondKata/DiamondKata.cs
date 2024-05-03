@@ -17,6 +17,9 @@ public class DiamondKata
 		if (nr >= 2 * _size)
 			return null;
 
+		if (nr > _size)
+			nr = 2 * _size - nr;
+
 		var spacePrefix = Space(Math.Max(_size - nr, 0));
 
 		var spaceSuffix = string.Empty;
