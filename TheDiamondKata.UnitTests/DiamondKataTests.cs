@@ -2,7 +2,7 @@ using FluentAssertions;
 
 namespace TheDiamondKata.UnitTests;
 
-public class UnitTest1
+public class DiamondKataTests
 {
 	[Fact]
 	public void DiamondKata_line_1_is_single_letter()
@@ -12,10 +12,5 @@ public class UnitTest1
 		var result = sut.Line(1);
 
 		result.Should().Be("A");
-	}
-
-	class DiamondKata
-	{
-		public string Line(int nr) => "A";
 	}
 }
