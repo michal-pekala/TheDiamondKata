@@ -13,4 +13,14 @@ public class DiamondKataTests
 
 		result.Should().Be("A");
 	}
+
+	[Fact]
+	public void DiamondKata_of_size_1_line_2_is_null()
+	{
+		var sut = new DiamondKata();
+
+		var result = sut.Line(2);
+
+		result.Should().BeNull();
+	}
 }
