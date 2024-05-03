@@ -16,6 +16,6 @@ public class UnitTest1
 
 	class DiamondKata
 	{
-		public string Line(int nr) => throw new NotImplementedException();
+		public string Line(int nr) => "A";
 	}
 }
