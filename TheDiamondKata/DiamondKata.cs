@@ -24,7 +24,7 @@ public class DiamondKata
 		if (nr > 1)
 			spaceSuffix = Space(2 * nr - 3);
 
-		return spacePrefix + Letter(nr) + spaceSuffix;
+		return spacePrefix + Letter(nr) + (nr > 1 ? spaceSuffix + Letter(nr) : string.Empty);
 	}
 
 	private string Space(int length)
