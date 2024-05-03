@@ -75,4 +75,24 @@ public class DiamondKataTests
 
 		result.Should().BeNull();
 	}
+
+	[Fact]
+	public void DiamondKata_of_size_n_line_m_contains_n_minus_m_spaces_prefix()
+	{
+		// ARRANGE
+		var size = new Random().Next(26) + 1;
+
+		var lineNr = new Random().Next(size) - 1;
+
+		var sut = new DiamondKata(size);
+
+		// ACT
+		var result = sut.Line(lineNr);
+
+		//ASSERT
+		var expectedSpace = string.Join(null, Enumerable.Repeat(' ', size - lineNr));
+
+		result.Should().NotBeNull();
+		result.Substring(size - lineNr).Should().Be(expectedSpace);
+	}
 }
