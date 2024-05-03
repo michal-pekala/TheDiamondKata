@@ -102,7 +102,7 @@ public class DiamondKataTests
 	}
 
 	[Fact]
-	public void DiamondKata_line_1_contains_no_spaces_after_letter()
+	public void DiamondKata_line_1_contains_nothing_after_letter()
 	{
 		// ARRANGE
 		var size = _random.Next(26) + 1;
@@ -144,6 +144,24 @@ public class DiamondKataTests
 		var length = 2 * lineNr - 3;
 
 		spaceAfterLetter.Prefix(length).Should().Be(_txt.Space(length));
+	}
+
+	[Fact]
+	public void DiamondKata_line_m_contains_mth_letter_at_the_end()
+	{
+		// ARRANGE
+		var size = _random.Next(26) + 1;
+
+		var lineNr = _random.Next(size - 1) + 2; // line 1 is already covered
+
+		var sut = new DiamondKata(size);
+
+		// ACT
+		var result = sut.Line(lineNr);
+
+		//ASSERT
+		result.Should().NotBeNullOrEmpty();
+		result[^1].Should().Be(_txt.Letter(lineNr));
 	}
 
 }
