@@ -16,6 +16,6 @@ public class DiamondKata
 	{
 		var space = string.Join(null, Enumerable.Repeat(' ', Math.Max(_size - nr, 0)));
 
-		return nr < 2 * _size ? space + "A" : null;
+		return nr < 2 * _size ? space + (char)('A' + nr - 1) : null;
 	}
 }
