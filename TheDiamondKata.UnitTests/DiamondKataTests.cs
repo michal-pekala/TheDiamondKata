@@ -49,4 +49,18 @@ public class DiamondKataTests
 
 		act.Should().Throw<ArgumentException>();
 	}
+
+	[Fact]
+	public void DiamondKata_of_size_n_line_1_contains_n_minus_1_spaces()
+	{
+		var size = new Random().Next(26) + 1;
+
+		var sut = new DiamondKata(size);
+
+		var result = sut.Line(1);
+
+		var expectedSpace = string.Join(null, Enumerable.Repeat(' ', size - 1));
+
+		result.Should().Be(expectedSpace + "A");
+	}
 }
