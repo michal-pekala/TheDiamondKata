@@ -182,4 +182,25 @@ public class DiamondKataTests
 		result.Length.Should().Be(size + lineNr - 1);
 	}
 
+	[Fact]
+	public void DiamondKata_of_size_n_line_m_and_2n_minus_m_are_the_same()
+	{
+		// ARRANGE
+		var size = _random.Next(26) + 1;
+
+		var lineNr = _random.Next(size) + 1;
+
+		var sut = new DiamondKata(size);
+
+		// ACT
+		var mthLine = sut.Line(lineNr);
+
+		var _2nMinusMthLine = sut.Line(2 * size - lineNr);
+
+		//ASSERT
+		mthLine.Should().NotBeNullOrEmpty();
+		_2nMinusMthLine.Should().NotBeNullOrEmpty();
+		mthLine.Should().BeEquivalentTo(_2nMinusMthLine);
+	}
+
 }
