@@ -93,6 +93,6 @@ public class DiamondKataTests
 		var expectedSpace = string.Join(null, Enumerable.Repeat(' ', size - lineNr));
 
 		result.Should().NotBeNull();
-		result.Substring(size - lineNr).Should().Be(expectedSpace);
+		result.Substring(0, size - lineNr).Should().Be(expectedSpace);
 	}
 }
