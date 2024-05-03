@@ -164,4 +164,22 @@ public class DiamondKataTests
 		result[^1].Should().Be(_txt.Letter(lineNr));
 	}
 
+	[Fact]
+	public void DiamondKata_of_size_n_line_m_length_is_n_plus_m_minus_1()
+	{
+		// ARRANGE
+		var size = _random.Next(26) + 1;
+
+		var lineNr = _random.Next(size) + 1;
+
+		var sut = new DiamondKata(size);
+
+		// ACT
+		var result = sut.Line(lineNr);
+
+		//ASSERT
+		result.Should().NotBeNullOrEmpty();
+		result.Length.Should().Be(size + lineNr - 1);
+	}
+
 }
