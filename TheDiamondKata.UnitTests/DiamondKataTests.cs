@@ -121,4 +121,29 @@ public class DiamondKataTests
 		afterA.Should().BeEmpty();
 	}
 
+	[Fact]
+	public void DiamondKata_line_m_contains_2m_minus_3_spaces_after_letter()
+	{
+		// ARRANGE
+		var size = _random.Next(26) + 1;
+
+		var lineNr = _random.Next(size) - 1;
+
+		var sut = new DiamondKata(size);
+
+		// ACT
+		var result = sut.Line(lineNr);
+
+		//ASSERT
+
+		result.Should().NotBeNull();
+		var letterIndex = result.IndexOf((char)('A' + lineNr - 1));
+
+		var spaceAfterLetter = result.Substring(letterIndex + 1);
+
+		var length = 2 * lineNr - 3;
+
+		spaceAfterLetter.Prefix(length).Should().Be(_txt.Space(length));
+	}
+
 }
