@@ -14,8 +14,16 @@ public class DiamondKata
 
 	public string? Line(int nr)
 	{
-		var space = string.Join(null, Enumerable.Repeat(' ', Math.Max(_size - nr, 0)));
+		if (nr >= 2 * _size)
+			return null;
 
-		return nr < 2 * _size ? space + (char)('A' + nr - 1) : null;
+		var spacePrefix = string.Join(null, Enumerable.Repeat(' ', Math.Max(_size - nr, 0)));
+
+		var spaceSuffix = string.Empty;
+
+		if (nr > 1)
+			spaceSuffix = string.Join(null, Enumerable.Repeat(' ', 2 * nr - 3));
+
+		return spacePrefix + (char)('A' + nr - 1) + spaceSuffix;
 	}
 }

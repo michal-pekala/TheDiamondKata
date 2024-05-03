@@ -127,7 +127,7 @@ public class DiamondKataTests
 		// ARRANGE
 		var size = _random.Next(26) + 1;
 
-		var lineNr = _random.Next(size) - 1;
+		var lineNr = _random.Next(size - 1) + 2; // line 1 is already covered
 
 		var sut = new DiamondKata(size);
 
