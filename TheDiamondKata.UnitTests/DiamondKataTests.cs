@@ -39,4 +39,14 @@ public class DiamondKataTests
 
 		act.Should().Throw<ArgumentException>();
 	}
+
+	[Fact]
+	public void DiamondKata_of_size_less_than_0_throws_ArgumentException()
+	{
+		var size = new Random().Next(1000);
+
+		var act = () => new DiamondKata(size: -size);
+
+		act.Should().Throw<ArgumentException>();
+	}
 }
