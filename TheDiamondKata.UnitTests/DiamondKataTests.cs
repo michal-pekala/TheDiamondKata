@@ -100,4 +100,25 @@ public class DiamondKataTests
 
 		letter.Should().Be((char)('A' + lineNr - 1));
 	}
+
+	[Fact]
+	public void DiamondKata_line_1_contains_no_spaces_after_letter()
+	{
+		// ARRANGE
+		var size = _random.Next(26) + 1;
+
+		var sut = new DiamondKata(size);
+
+		// ACT
+		var result = sut.Line(1);
+
+		//ASSERT
+
+		result.Should().NotBeNull();
+
+		var afterA = result.Substring(result.IndexOf('A') + 1);
+
+		afterA.Should().BeEmpty();
+	}
+
 }
