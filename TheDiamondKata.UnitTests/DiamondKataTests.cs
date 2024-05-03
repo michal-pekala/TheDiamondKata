@@ -98,7 +98,7 @@ public class DiamondKataTests
 		result.Should().NotBeNull();
 		var letter = result.Substring(size - lineNr).First();
 
-		letter.Should().Be((char)('A' + lineNr - 1));
+		letter.Should().Be(_txt.Letter(lineNr));
 	}
 
 	[Fact]
@@ -137,7 +137,7 @@ public class DiamondKataTests
 		//ASSERT
 
 		result.Should().NotBeNull();
-		var letterIndex = result.IndexOf((char)('A' + lineNr - 1));
+		var letterIndex = result.IndexOf(_txt.Letter(lineNr));
 
 		var spaceAfterLetter = result.Substring(letterIndex + 1);
 

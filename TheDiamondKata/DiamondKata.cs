@@ -17,13 +17,18 @@ public class DiamondKata
 		if (nr >= 2 * _size)
 			return null;
 
-		var spacePrefix = string.Join(null, Enumerable.Repeat(' ', Math.Max(_size - nr, 0)));
+		var spacePrefix = Space(Math.Max(_size - nr, 0));
 
 		var spaceSuffix = string.Empty;
 
 		if (nr > 1)
-			spaceSuffix = string.Join(null, Enumerable.Repeat(' ', 2 * nr - 3));
+			spaceSuffix = Space(2 * nr - 3);
 
-		return spacePrefix + (char)('A' + nr - 1) + spaceSuffix;
+		return spacePrefix + Letter(nr) + spaceSuffix;
 	}
+
+	private string Space(int length)
+		=> string.Join(null, Enumerable.Repeat(' ', length));
+
+	private char Letter(int nr) => (char)('A' + nr - 1);
 }
