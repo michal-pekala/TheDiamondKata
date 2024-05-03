@@ -63,4 +63,16 @@ public class DiamondKataTests
 
 		result.Should().Be(expectedSpace + "A");
 	}
+
+	[Fact]
+	public void DiamondKata_of_size_n_line_2n_is_null()
+	{
+		var size = new Random().Next(26) + 1;
+
+		var sut = new DiamondKata(size);
+
+		var result = sut.Line(2 * size);
+
+		result.Should().BeNull();
+	}
 }
